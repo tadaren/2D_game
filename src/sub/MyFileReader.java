@@ -34,4 +34,21 @@ public class MyFileReader {
 		return str;
 	}
 
+	public static byte[][] RoadField(String fileName,int x, int y) throws IOException{
+		File file = new File(fileName);
+		BufferedReader br = new BufferedReader(new FileReader(file));
+
+		byte[][] readField = new byte[x][y];
+		String str = null;
+		br.readLine();
+		br.readLine();
+		for(int j = 0;(str = br.readLine()) != null && j < y; j++){
+			for(int i = 0; i < x; i++){
+				readField[i][j] = (byte) Integer.parseInt(str.substring(i, i+1));
+			}
+		}
+		br.close();
+		return readField;
+	}
+
 }
