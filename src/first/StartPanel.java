@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,7 +15,8 @@ public class StartPanel extends JPanel{
 	public StartPanel(){
 		JLabel title = new JLabel("クソゲー");
 		title.setPreferredSize(new Dimension(100,100));
-		title.setFont(new Font("Serif", Font.PLAIN, 12));
+		title.setFont(new Font("MSゴシック", Font.PLAIN, 40));
+		title.setHorizontalAlignment(JLabel.CENTER);
 		setLayout(new BorderLayout());
 		setBackground(Color.ORANGE);
 		add(title, BorderLayout.NORTH);
@@ -37,6 +39,10 @@ public class StartPanel extends JPanel{
 		JButton random = new JButton("Random生成");
 		random.addActionListener(new FirstFrame());
 		random.setActionCommand("random");
+		
+		JButton reset = new JButton("RESET");
+		reset.addActionListener(new FirstFrame());
+		reset.setActionCommand("reset");
 
 		selectPanel.add(stage1);
 		selectPanel.add(stage2);
@@ -45,6 +51,7 @@ public class StartPanel extends JPanel{
 		selectPanel.add(random);
 
 		add(selectPanel, BorderLayout.CENTER);
+		add(reset,BorderLayout.SOUTH);
 	}
 
 
